@@ -12,31 +12,45 @@ A modern app built using:
 
 - 📁 Organized folder structure with alias imports
 
-🗂️ Project Structure
-
-```bash
-
-project/
-│
-├── src/
-│   ├── components/
-│   │   └── ui/        # Shadcn UI components
-│   ├── App.jsx
-│   └── main.jsx
-│
-├── jsconfig.json      # For VS Code + JS alias support
-├── tsconfig.json      # Required by Shadcn UI CLI
-├── tailwind.config.js
-├── vite.config.js
-└── package.json
-
-```
 ---
 
-## Screenshot
-<img src="./public/code-explanation.png" width="45%" style="margin: auto;" />
-<img src="./src/assets/code-explain-UI.png" width="45%" style="margin-right: 5%;" />
+## 🗂️ Project Flow Chart
+```pgsql
 
+            ┌────────────────────┐
+            │   App Entry Point  │
+            └─────────┬──────────┘
+                      │
+                      ▼
+           ┌─────────────────────┐
+           │ Check Authentication│
+           └─────────┬──────────┘
+         Authenticated? ────────────┐
+          (Yes)                       (No)
+            │                            │
+            ▼                            ▼
+  ┌──────────────────┐          ┌───────────────────┐
+  │   Dashboard      │          │   Login Page      │
+  │ - View resumes   │          │ - Login Form      │
+  │ - Create Resume  │          │ - Signup Link     │
+  │ - Update Resume  │          └─────────┬─────────┘
+  └─────────┬────────┘                    │
+            │                             │
+            ▼                             ▼
+  ┌──────────────────┐            ┌───────────────────┐
+  │  Create Resume   │            │   Signup Page     │
+  │ - Fill resume    │            │ - Signup Form     │
+  │ - Save resume    │            └─────────┬─────────┘
+  └─────────┬────────┘                      │
+            │                               │
+            ▼                               ▼
+  ┌──────────────────┐            ┌───────────────────┐
+  │  Update Resume   │◀───────────┤ After Signup/Login│
+  │ - Edit fields    │            │ Redirect to       │
+  │ - Save changes   │            │ Dashboard         │
+  └──────────────────┘            └───────────────────┘
+
+```
 ---
 ## 🚀 Getting Started
 
@@ -93,10 +107,9 @@ export default defineConfig({
 
 Run the shadcn init command to setup your project:
 
-`
+```bash
 npx shadcn@latest init
-
-`
+```
 
 - creates components.json
 
@@ -110,8 +123,12 @@ npx shadcn@latest init
 
 for example if you want to add card component in the app.
 
-`npx shadcn-ui add card`
+```bash
+npx shadcn-ui add card
+```
 
+
+### Google Authentication
 
 
 
