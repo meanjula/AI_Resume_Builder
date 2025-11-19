@@ -1,13 +1,28 @@
-import React from 'react'
-import { Button } from '../ui/button'
+import React from "react";
+import { Button } from "@/components/ui/button"
+import { Link } from "react-router-dom";
+import { UserButton, useUser } from "@clerk/clerk-react";
 
 function Header() {
+  const {user,isSignedIn}= useUser()
   return (
-    <div>
-     <img src="src/assets/resumeLogo.png" alt="resume logo" height={100} width={100}></img>
-     <Button>Get Started</Button>
-    </div>
-  )
+    <header className="flex justify-between shadow-md">
+      <img alt="" src="src/assets/resume_logo.png" className="h-20 w-auto" />
+      {isSignedIn ?
+        <div className="flex gap-5 m-5 item-center">
+          <Link to={'/'}>
+            <Button variant="outline" >Dashboard</Button>
+          </Link>
+         
+         <UserButton/>
+        </div>:
+        <Link to={'auth/signin'}>
+          <Button className="m-5">Get Started</Button>
+        </Link>
+      }
+  
+    </header>
+  );
 }
 
-export default Header
+export default Header;
