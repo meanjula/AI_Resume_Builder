@@ -10,7 +10,7 @@ A modern app built using:
 
 - 🧩 Shadcn UI — beautiful, copy-based UI components
 
-- 📁 Organized folder structure with alias imports
+-  📦 app is uisng node version v25.2.0
 
 ---
 
@@ -127,12 +127,11 @@ for example if you want to add card component in the app.
 npx shadcn-ui add card
 ```
 
-
 ### Google Authentication
 
 
+### Create Dashboard
 
+#### Add resume
 
-
-
-
+<img src="./src/assets/resume-dashboard.png"  style="margin: auto;" />

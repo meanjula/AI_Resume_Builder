@@ -10,17 +10,15 @@ function Header() {
       <img alt="" src="src/assets/resume_logo.png" className="h-20 w-auto" />
       {isSignedIn ?
         <div className="flex gap-5 m-5 item-center">
-          <Link to={'/'}>
+          <Link to={'/dashboard'}>
             <Button variant="outline" >Dashboard</Button>
-          </Link>
-         
+          </Link>        
          <UserButton/>
         </div>:
         <Link to={'auth/signin'}>
           <Button className="m-5">Get Started</Button>
         </Link>
       }
-  
     </header>
   );
 }
